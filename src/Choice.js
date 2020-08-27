@@ -1,9 +1,7 @@
 import React from 'react';
 import './Choice.css';
-
-
-
 function Choice({label,description,options_label}) {
+  
     return (
         <div className="choiceblock">
             <div className="choiceblock__help">
@@ -22,6 +20,7 @@ function Choice({label,description,options_label}) {
                     )}
             </div>
         </div>
+        
     );
 }
 
