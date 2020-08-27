@@ -19,8 +19,8 @@ function DynamicForm({template}) {
                 comp = <TextFields label="Name" description="Enter your name" type="text" />
             else if(c[i] === "Fathers Name")
                 comp = <TextFields label="Father's name" description="Enter your Father's name." type="textr" />
-            //else if(c[i] === "Gender")
-                //comp = <Choice label="Gender" description="Choose any One" option_labels={template.field.field_type_list[4].options} />
+            else if(c[i] === "Gender")
+                comp = <Choice label="Gender" description="Choose any One" option_labels={template.field.field_type_list[4].options} />
             else if(c[i] === "CV")
                 comp = <FileUpload label="Resume" description="Your CV File" type="file"/>
             else
