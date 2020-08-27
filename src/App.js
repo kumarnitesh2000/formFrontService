@@ -7,7 +7,7 @@ const App = () =>{
 
 const are_you_testing = false;
 //import the json template here -> this template shows the form you have to show    
-//hello contributor the demo template is available at https://jsonformatter.org/json-viewer/6f4edc
+//hello contributor the demo template is available at -------------------->  https://jsonformatter.org/ad0643
 //in the left part side on this url take that json and given to below template variable 
 //use that obj to create form template in DynamicForm component  .
 // TODO
