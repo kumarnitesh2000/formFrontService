@@ -6,13 +6,11 @@ import Select from './Select';
 import DateTime from './DateTime';
 import CheckBoxList from './Choices'
 import Button from '@material-ui/core/Button';
-import Header from './Header';
+
 
 function Form() {
     return (
         <div className="form">
-        {/*This is Header Section*/}
-        <Header title="Contact info" description="this is contact info enter correct info ."/>   
         {/*Now this is example of an TextField for Name And Normal Text !*/}
         <TextFields label="Name" description="Enter Your Name" type="text"/>
         {/*Now this is example of a number Field !*/}
