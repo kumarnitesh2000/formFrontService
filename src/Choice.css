@@ -1,0 +1,8 @@
+.choiceblock__help > p{
+    color: lightgray;
+    font-size: 14px;
+}
+
+.choiceblock {
+    margin: 15px;
+}

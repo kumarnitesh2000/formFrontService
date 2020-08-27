@@ -1,0 +1,19 @@
+.textblock{
+margin: 15px;
+}
+
+.textblock__input{
+
+
+
+}
+
+.textblock__help{
+
+}
+
+.textblock__help > p{
+    color:lightgray;
+    font-size:14px;
+}
+
