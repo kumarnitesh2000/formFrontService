@@ -16,8 +16,8 @@ function FileUpload({label,description,type}) {
     return (
         
 <div className={classes.root}>
-<div className={classes.root}>{label}</div>
-<div className={classes.root}>{description}</div>
+<label>{label}</label>
+<p style={{"color":"lightgray","font-size":"14px"}}>{description}</p>
       <input
         accept="image/*"
         className={classes.input}

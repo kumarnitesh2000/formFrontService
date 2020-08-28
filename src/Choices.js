@@ -36,7 +36,7 @@ export default function CheckboxList({label,description,option_labels}) {
   
     <List className={classes.root}>
       <label>{label}</label>
-  <p>{description}</p>
+  <p style={{"color":"lightgray","font-size":"14px"}}>{description}</p>
       {option_labels.map((value) => {
         const labelId = `${value}`;
 

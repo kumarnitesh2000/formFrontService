@@ -4,7 +4,8 @@ import TextFields from './TextFields';
 import Select from './Select';
 import FileUpload from './FileUpload';
 import DateTime from './DateTime';
-
+import CheckBoxList from './Choices'
+import Choice from './Choice';
 function DynamicForm({template}) {
     let temp = [];
     let comp;
@@ -19,7 +20,11 @@ function DynamicForm({template}) {
                 comp = <FileUpload label={c['field_label'][i]} description={c['field_description'][i]} type="file"/>
             else if(c['field_type_list'][i]['field_type'] === "datetime")
                 comp = <DateTime label={c['field_label'][i]} description={c['field_description'][i]}/>
-                    
+            else if(c['field_type_list'][i]['field_type'] === "multipleChoices")
+                comp = <CheckBoxList label={c['field_label'][i]} description={c['field_description'][i]} option_labels={c['field_type_list'][i]['options']} />    
+            else if(c['field_type_list'][i]['field_type'] === "choice")
+                comp = <Choice label={c['field_label'][i]} description={c['field_description'][i]} options_label={c['field_type_list'][i]['options']}/>
+
             
             temp.push(comp);
         }
