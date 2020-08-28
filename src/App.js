@@ -83,7 +83,7 @@ const template = {
         "options": []
       },
       {
-        "field_type": "date&time",
+        "field_type": "datetime",
         "index": 6,
         "options": []
       }
