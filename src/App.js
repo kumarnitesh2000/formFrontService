@@ -16,9 +16,11 @@ const are_you_testing = false;
 //use that obj to create form template in DynamicForm component  .
 // TODO
 
-const url =  "http://localhost:8000/forms/form_info/13";
+const url =  "http://localhost:8000/forms/form_info/31";
 const [template_final,setTemplate] = useState(template);
+
 //put that fetched template in this template variable  .
+
 fetch(url).then((res) => res.json()).then(data => {
   console.log(data);
   setTemplate(data.template);
