@@ -1,38 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
 import Form from './Form';
 import Header from './Header';
 import DynamicForm from './DynamicForm';
-import template from './template'
+import template from './template';
+
+
 const App = () =>{
 
 const are_you_testing = false;
+
 //import the json template here -> this template shows the form you have to show    
 //hello contributor the demo template is available at -------------------->  https://jsonformatter.org/d96a0c
 //in the left part side on this url take that json and given to below template variable 
 //use that obj to create form template in DynamicForm component  .
 // TODO
 
-
-//now fetch the template task is pending . 
-
-//const test_url = "https://jsonplaceholder.typicode.com/todos/1";
-const url = "http://localhost:8080/forms/form_info/1";
-fetch(url)
-.then((res) => res.json()).then((data) => {
-
-console.log(data);
-
-}
-
-);
-
-
-const templates = template;
-
-
-
+const url =  "http://localhost:8000/forms/form_info/13";
+const [template_final,setTemplate] = useState(template);
 //put that fetched template in this template variable  .
+fetch(url).then((res) => res.json()).then(data => {
+  console.log(data);
+  setTemplate(data.template);
+})
 
 return(
 <div className="App">
@@ -42,7 +32,7 @@ return(
 
 {
 
-are_you_testing ? (<Form />) :  (<DynamicForm template={templates}/>)
+are_you_testing ? (<Form />) :  (<DynamicForm template={template_final}/>)
 
 }
   
