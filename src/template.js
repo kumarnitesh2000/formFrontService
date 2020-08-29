@@ -13,7 +13,8 @@ const template = {
         "In this Section Phone number and Mail Are there Please Fill these correctly",
         "In This Section Your Name  , Father Name , Mothers Name are there , Gender",
         "In this Section your CV , graduation Year |Month , Your Skills"
-      ]
+      ],
+      "section_fields":[2,3,2]
     },
     "field": {
       "field_description": [

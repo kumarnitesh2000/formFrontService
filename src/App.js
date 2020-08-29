@@ -16,11 +16,19 @@ const are_you_testing = false;
 
 //now fetch the template task is pending . 
 
-const fetch_template ={
+//const test_url = "https://jsonplaceholder.typicode.com/todos/1";
+const url = "http://localhost:8080/forms/form_info/1";
+fetch(url)
+.then((res) => res.json()).then((data) => {
 
-} ;
+console.log(data);
 
-const templates = template || fetch_template ;
+}
+
+);
+
+
+const templates = template;
 
 
 

@@ -1,42 +1,40 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextFields from './TextFields';
-import Select from './Select';
-import FileUpload from './FileUpload';
-import DateTime from './DateTime';
-import CheckBoxList from './Choices'
-import Choice from './Choice';
-function DynamicForm({template}) {
-    let temp = [];
-    let comp;
-    const c = template.field;
-    var len = template.field['field_label'].length;
-        for(var i = 0; i < len ; i++){
-            if(c['field_type_list'][i]['field_type'] === "text" || c['field_type_list'][i]['field_type'] === "number")
-                comp = <TextFields label={c['field_label'][i]} description={c['field_description'][i]} type={c['field_type_list'][i]['field_type']} />
-            else if(c['field_type_list'][i]['field_type'] === "dropDown")
-                comp = <Select  label={c['field_label'][i]} description={c['field_description'][i]} option_labels={c['field_type_list'][i]['options']} ismultiple={false}/>
-            else if(c['field_type_list'][i]['field_type'] === "fileUpload")
-                comp = <FileUpload label={c['field_label'][i]} description={c['field_description'][i]} type="file"/>
-            else if(c['field_type_list'][i]['field_type'] === "datetime")
-                comp = <DateTime label={c['field_label'][i]} description={c['field_description'][i]}/>
-            else if(c['field_type_list'][i]['field_type'] === "multipleChoices")
-                comp = <CheckBoxList label={c['field_label'][i]} description={c['field_description'][i]} option_labels={c['field_type_list'][i]['options']} />    
-            else if(c['field_type_list'][i]['field_type'] === "choice")
-                comp = <Choice label={c['field_label'][i]} description={c['field_description'][i]} options_label={c['field_type_list'][i]['options']}/>
+import Section from './Section';
 
-            
-            temp.push(comp);
+function DynamicForm({template}) {
+
+
+    let temp = [];
+    let comp; 
+    let start = 0;
+    
+    const sections_title = template.section['section_title'];
+    const section_description = template.section['section_description'];
+    const section_fields = template.section['section_fields'];
+     
+
+    for(let i=0;i<sections_title.length;i++){
+        let field_label = [];
+        let field_description = [] ;
+        let field_type_list = [] ;
+        console.log(`${start} to ${section_fields[i]+start}`);
+        for(let j=start;j<section_fields[i]+start;j++){
+                ;
+                field_label.push(template.field['field_label'][j]);
+                field_description.push(template.field['field_description'][j]);
+                
+                field_type_list.push({"type":template.field['field_type_list'][j]['field_type'], "option":template.field['field_type_list'][j]['options']});
         }
         
-    return (
-        <div id="here">
-            {/*Use this template and create form*/}
-            {temp}
-            {/*Code Above use the template named props for form creation*/}
+        comp = <Section title={sections_title[i]} description={section_description[i]} field_type_list={field_type_list} field_label={field_label} field_description={field_description}/>
+        temp.push(comp)
+        start+=section_fields[i];
+       
+    }
 
-        {/*This is Submit Button*/}    
-        <Button variant="contained" color="secondary" size="large" value="submit" style={{marginTop:'10px', width:'40%', marginBottom:'10px'}}>Submit</Button>            
+    return (
+        <div>
+                {temp}
         </div>
     );
 }
