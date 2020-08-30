@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './App.css';
 import Form from './Form';
 import Header from './Header';
@@ -21,15 +21,18 @@ const [template_final,setTemplate] = useState(template);
 
 //put that fetched template in this template variable  .
 
+useEffect( () => {
 fetch(url).then((res) => res.json()).then(data => {
   console.log(data);
   setTemplate(data.template);
 })
+} , []
+);
 
 return(
 <div className="App">
    {/*This is Header Section*/}
-   <Header title="Contact info" description="this is contact info enter correct info ."/>
+   <Header title={template_final.form['form_title']} description={template_final.form['form_description']}/>
    {/*This is only the test Form to Show each and every field and component */}
 
 {

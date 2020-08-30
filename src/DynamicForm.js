@@ -1,6 +1,8 @@
 import React from 'react';
 import Section from './Section';
 
+
+
 function DynamicForm({template}) {
 
 
@@ -34,6 +36,7 @@ function DynamicForm({template}) {
 
     return (
         <div>
+       
                 {temp}
         </div>
     );
